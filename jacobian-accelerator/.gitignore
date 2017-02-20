@@ -1,0 +1,6 @@
+jacobian-accelerator/csim/**
+jacobian-accelerator/syn/**
+jacobian-accelerator/impl/**
+jacobian-accelerator/.autopilot/**
+.apc
+jacobian-accelerator/jacobian-accelerator.log
