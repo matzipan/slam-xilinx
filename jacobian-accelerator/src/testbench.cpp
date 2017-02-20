@@ -1,39 +1,53 @@
 #include "toplevel.hpp"
+#include "fstream"
+#include "math.h"
 
 int main() {
-    hls::stream<int> to_hw, from_hw;
+	int current_ocm_write_position = 0;
+	int current_ocm_read_position = 3+2+(2+4)*6;
+	x_uint32 n;
 
-	x_union u;
+    x_union memory[300];
 
-	u.f = 0.3f;
-
-    to_hw.write(u.i);	// x[0]
-    to_hw.write(u.i);	// x[1]
-    to_hw.write(u.i);	// x[2]
-
-    to_hw.write(u.i);	// R[0][0]
-	to_hw.write(u.i);	// R[0][1]
-	to_hw.write(u.i);	// R[1][0]
-	to_hw.write(u.i);	// R[1][1]
-
-    to_hw.write(1);     // idf.size()
-
-    u.f = 0.5f;
-    to_hw.write(u.i);	// xf[0][0]
-    to_hw.write(u.i);	// xf[0][1]
-
-    to_hw.write(u.i);	// Pf[0][0][0]
-    to_hw.write(u.i);	// Pf[0][0][1]
-    to_hw.write(u.i);	// Pf[0][1][0]
-    to_hw.write(u.i);	// Pf[0][1][1]
+    std::ifstream in("test.in");
+    std::ifstream out("test.out");
 
 
+    for (int i = 0; i < 3; i++) {
+        in>>memory[current_ocm_write_position++].f;	// x[i]
+    }
 
-    //toplevel(to_hw, from_hw);
+    for (int i = 0; i < 4; i++) {
+        in>>memory[current_ocm_write_position++].f;	// R[i][j]
+    }
 
-    //x_input_t value = from_hw.read();
+    in>>n;
+
+    for (int i = 0; i < n; i++) {
+    	for (int j = 0; j < 2; j++) {
+            in>>memory[current_ocm_write_position++].f;	// xf[i]
+    	}
+
+    	for (int j = 0; j < 4; j++) {
+			in>>memory[current_ocm_write_position++].f;	// Pf[i][j]
+		}
+
+    }
+
+    toplevel(memory, n);
 
     int failed = 0;
+
+    for (int i = 0; i < n * (2+4+4); i++) {
+    	float test;
+
+    	out>>test;
+
+    	if (abs(test - memory[current_ocm_read_position+i].f) > 0.00001) {
+    		printf("%.10f %.10f\n", test, memory[current_ocm_read_position+i].f);
+    		failed++;
+    	}
+    }
 
     if(failed == 0) {
     	printf("Everything succeeded\n");

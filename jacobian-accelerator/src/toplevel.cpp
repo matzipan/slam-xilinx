@@ -7,12 +7,10 @@
 #define MAX_OBSERVED_LANDMARKS 300
 #define X_PI 3.14159265358979323846
 
-typedef ap_ufixed<32, 3> x_ufixed;
-
 x_fixed
 	x[3],
 	Pf[2][2],
-	Hv[2][3], //@TODO  Implementing memory 'toplevel_Hf_V_ram' using block RAMs with power-on initialization.
+	Hv[2][3],
 	Hf[2][2],
 	Sf[2][2],
 	zp[2],
@@ -42,73 +40,56 @@ x_fixed trigonometricOffset(x_fixed ang) {
 }
 
 //Top-level function
-void toplevel(x_uint32* ocm, x_fixed bla) {//, hls::stream<int> &output) {
+void toplevel(x_union* ocm, x_uint32 n) {
 	#pragma HLS INTERFACE m_axi depth=180 port=ocm
-	#pragma HLS INTERFACE s_axilite port=bla bundle=AXILiteS register
+	#pragma HLS INTERFACE s_axilite port=n bundle=control register
+	#pragma HLS INTERFACE s_axilite port=return bundle=control register
 
-	//#pragma HLS INTERFACE axis port=output
-
-	#pragma HLS INTERFACE s_axilite port=return bundle=AXILiteS register
-
-	//@TODO use more hls::Streams
+	//@TODO use memcpy for burst mode
 	//@TODO array reshape
 	//@TODO https://wiki.york.ac.uk/display/RTS/Vivado+HLS+Knowledge+Base#VivadoHLSKnowledgeBase-ForcingandPreventingtheUseofBlockRAMs
 
-	/*x_union u;
+	x_union u;
+	x_uint12 current_ocm_read_position = 0;
+	x_uint12 current_ocm_write_position = 3+2+(2+4)*n;
 
 	for (int i = 0; i < 3; i++) {
-		u.i = input.read();
-		x[i] = u.f;
+		x[i] = ocm[current_ocm_read_position++].f;
 	}
 
 	for (int j = 0; j < 2; j++) {
 		for (int k = 0; k < 2; k++) {
-			u.i = input.read();
-			R[j][k] = u.f;
+			R[j][k] = ocm[current_ocm_read_position++].f;
 		}
 	}
-
-	int n = input.read();
 
 	x_fixed dx, dy;
 	x_ufixed d2, d;
 
 	main_loop:for (int i = 0; i < n; i++) {
 		#pragma HLS LOOP_TRIPCOUNT max=60 avg=10
-		u.i = input.read(); // xf[0]
-		dx = ((x_fixed) u.f) - x[0];
-
-		u.i = input.read(); // xf[1]
-		dy = ((x_fixed) u.f) - x[1];
+		dx = ((x_fixed) ocm[current_ocm_read_position++].f) - x[0]; // xf[0]
+		dy = ((x_fixed) ocm[current_ocm_read_position++].f) - x[1]; // xf[1]
 
 		d2 = dx * dx + dy * dy;
 		fxp_sqrt(d, d2);
 
-		u.f = d.to_float();
-		output.write(u.i); // zp[0]
+		ocm[current_ocm_write_position++].f = d.to_float(); // zp[0]
 
 		phase_t zn;
 		top_atan2(dy, dx, &zn);
-		u.f = trigonometricOffset(zn - x[2]).to_float();
-		output.write(u.i); // zp[1]
+		ocm[current_ocm_write_position++].f = trigonometricOffset(zn - x[2]).to_float();  // zp[1]
 
-		//@TODO stream Hf and Hv back
 		// Jacobian wrt. feature states
 		Hf[0][0] = dx / d;
-		u.f = Hf[0][0];
-		output.write(u.i);
-
 		Hf[0][1] = dy / d;
-		u.f = Hf[0][1];
-		output.write(u.i);
-
 		Hf[1][0] = -dy / d2;
-		u.f = Hf[1][0];
-		output.write(u.i);
-
 		Hf[1][1] = dx / d2;
-		u.f = Hf[1][1];
-		output.write(u.i);
+
+		ocm[current_ocm_write_position++].f = Hf[0][0];
+		ocm[current_ocm_write_position++].f = Hf[0][1];
+		ocm[current_ocm_write_position++].f = Hf[1][0];
+		ocm[current_ocm_write_position++].f = Hf[1][1];
 
 		// Jacobian wrt. vehicle states
 		Hv[0][0] = -Hf[0][0];
@@ -120,8 +101,7 @@ void toplevel(x_uint32* ocm, x_fixed bla) {//, hls::stream<int> &output) {
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {
-				u.i = input.read();
-				Pf[j][k] = u.f;
+				Pf[j][k] = ocm[current_ocm_read_position++].f;
 			}
 		}
 
@@ -130,9 +110,8 @@ void toplevel(x_uint32* ocm, x_fixed bla) {//, hls::stream<int> &output) {
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {
-				u.f = Sf[j][k] + R[j][k];
-				output.write(u.i); //Sf[j][k]
+				ocm[current_ocm_write_position++].f = Sf[j][k] + R[j][k]; // Sf[j][k]
 			}
 		}
-	}*/
+	}
 }
