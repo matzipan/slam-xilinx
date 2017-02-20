@@ -50,6 +50,10 @@ void toplevel(x_uint32* ocm, x_fixed bla) {//, hls::stream<int> &output) {
 
 	#pragma HLS INTERFACE s_axilite port=return bundle=AXILiteS register
 
+	//@TODO use more hls::Streams
+	//@TODO array reshape
+	//@TODO https://wiki.york.ac.uk/display/RTS/Vivado+HLS+Knowledge+Base#VivadoHLSKnowledgeBase-ForcingandPreventingtheUseofBlockRAMs
+
 	/*x_union u;
 
 	for (int i = 0; i < 3; i++) {
