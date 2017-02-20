@@ -1,0 +1,493 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Feb 19 01:03:26 2017
+| Host         : matzipan-thinkpad running 64-bit elementary OS 0.4 Loki
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'toplevel_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of toplevel_0 (xilinx.com:hls:toplevel:1.0) from (Rev. 1702190052) to (Rev. 1702190101)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'toplevel_0'.
+
+
+-Upgrade has removed interface 'input_V'
+
+-Upgrade has added interface 'm_axi_input_V' (xilinx.com:interface:aximm:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'toplevel_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'input_V_TDATA'
+
+-Upgrade has removed port 'input_V_TREADY'
+
+-Upgrade has removed port 'input_V_TVALID'
+
+-Upgrade has added port 'm_axi_input_V_ARADDR'
+
+-Upgrade has added port 'm_axi_input_V_ARBURST'
+
+-Upgrade has added port 'm_axi_input_V_ARCACHE'
+
+-Upgrade has added port 'm_axi_input_V_ARLEN'
+
+-Upgrade has added port 'm_axi_input_V_ARLOCK'
+
+-Upgrade has added port 'm_axi_input_V_ARPROT'
+
+-Upgrade has added port 'm_axi_input_V_ARQOS'
+
+-Upgrade has added port 'm_axi_input_V_ARREADY'
+
+-Upgrade has added port 'm_axi_input_V_ARREGION'
+
+-Upgrade has added port 'm_axi_input_V_ARSIZE'
+
+-Upgrade has added port 'm_axi_input_V_ARVALID'
+
+-Upgrade has added port 'm_axi_input_V_AWADDR'
+
+-Upgrade has added port 'm_axi_input_V_AWBURST'
+
+-Upgrade has added port 'm_axi_input_V_AWCACHE'
+
+-Upgrade has added port 'm_axi_input_V_AWLEN'
+
+-Upgrade has added port 'm_axi_input_V_AWLOCK'
+
+-Upgrade has added port 'm_axi_input_V_AWPROT'
+
+-Upgrade has added port 'm_axi_input_V_AWQOS'
+
+-Upgrade has added port 'm_axi_input_V_AWREADY'
+
+-Upgrade has added port 'm_axi_input_V_AWREGION'
+
+-Upgrade has added port 'm_axi_input_V_AWSIZE'
+
+-Upgrade has added port 'm_axi_input_V_AWVALID'
+
+-Upgrade has added port 'm_axi_input_V_BREADY'
+
+-Upgrade has added port 'm_axi_input_V_BRESP'
+
+-Upgrade has added port 'm_axi_input_V_BVALID'
+
+-Upgrade has added port 'm_axi_input_V_RDATA'
+
+-Upgrade has added port 'm_axi_input_V_RLAST'
+
+-Upgrade has added port 'm_axi_input_V_RREADY'
+
+-Upgrade has added port 'm_axi_input_V_RRESP'
+
+-Upgrade has added port 'm_axi_input_V_RVALID'
+
+-Upgrade has added port 'm_axi_input_V_WDATA'
+
+-Upgrade has added port 'm_axi_input_V_WLAST'
+
+-Upgrade has added port 'm_axi_input_V_WREADY'
+
+-Upgrade has added port 'm_axi_input_V_WSTRB'
+
+-Upgrade has added port 'm_axi_input_V_WVALID'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Feb 19 01:03:26 2017
+| Host         : matzipan-thinkpad running 64-bit elementary OS 0.4 Loki
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'slam_toplevel_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of slam_toplevel_0_0 (xilinx.com:hls:toplevel:1.0) from (Rev. 1702190052) to (Rev. 1702190101)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'slam_toplevel_0_0'.
+
+
+-Upgrade has removed interface 'input_V'
+
+-Upgrade has added interface 'm_axi_input_V' (xilinx.com:interface:aximm:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'slam_toplevel_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'input_V_TDATA'
+
+-Upgrade has removed port 'input_V_TREADY'
+
+-Upgrade has removed port 'input_V_TVALID'
+
+-Upgrade has added port 'm_axi_input_V_ARADDR'
+
+-Upgrade has added port 'm_axi_input_V_ARBURST'
+
+-Upgrade has added port 'm_axi_input_V_ARCACHE'
+
+-Upgrade has added port 'm_axi_input_V_ARLEN'
+
+-Upgrade has added port 'm_axi_input_V_ARLOCK'
+
+-Upgrade has added port 'm_axi_input_V_ARPROT'
+
+-Upgrade has added port 'm_axi_input_V_ARQOS'
+
+-Upgrade has added port 'm_axi_input_V_ARREADY'
+
+-Upgrade has added port 'm_axi_input_V_ARREGION'
+
+-Upgrade has added port 'm_axi_input_V_ARSIZE'
+
+-Upgrade has added port 'm_axi_input_V_ARVALID'
+
+-Upgrade has added port 'm_axi_input_V_AWADDR'
+
+-Upgrade has added port 'm_axi_input_V_AWBURST'
+
+-Upgrade has added port 'm_axi_input_V_AWCACHE'
+
+-Upgrade has added port 'm_axi_input_V_AWLEN'
+
+-Upgrade has added port 'm_axi_input_V_AWLOCK'
+
+-Upgrade has added port 'm_axi_input_V_AWPROT'
+
+-Upgrade has added port 'm_axi_input_V_AWQOS'
+
+-Upgrade has added port 'm_axi_input_V_AWREADY'
+
+-Upgrade has added port 'm_axi_input_V_AWREGION'
+
+-Upgrade has added port 'm_axi_input_V_AWSIZE'
+
+-Upgrade has added port 'm_axi_input_V_AWVALID'
+
+-Upgrade has added port 'm_axi_input_V_BREADY'
+
+-Upgrade has added port 'm_axi_input_V_BRESP'
+
+-Upgrade has added port 'm_axi_input_V_BVALID'
+
+-Upgrade has added port 'm_axi_input_V_RDATA'
+
+-Upgrade has added port 'm_axi_input_V_RLAST'
+
+-Upgrade has added port 'm_axi_input_V_RREADY'
+
+-Upgrade has added port 'm_axi_input_V_RRESP'
+
+-Upgrade has added port 'm_axi_input_V_RVALID'
+
+-Upgrade has added port 'm_axi_input_V_WDATA'
+
+-Upgrade has added port 'm_axi_input_V_WLAST'
+
+-Upgrade has added port 'm_axi_input_V_WREADY'
+
+-Upgrade has added port 'm_axi_input_V_WSTRB'
+
+-Upgrade has added port 'm_axi_input_V_WVALID'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Feb 19 00:54:15 2017
+| Host         : matzipan-thinkpad running 64-bit elementary OS 0.4 Loki
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'toplevel_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of toplevel_0 (xilinx.com:hls:toplevel:1.0) from (Rev. 1702182215) to (Rev. 1702190052)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'toplevel_0'.
+
+
+-Upgrade has removed interface 'ap_ctrl'
+
+-Upgrade has added interface 'interrupt' (xilinx.com:signal:interrupt:1.0)
+
+-Upgrade has added interface 's_axi_AXILiteS' (xilinx.com:interface:aximm:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'toplevel_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ap_done'
+
+-Upgrade has removed port 'ap_idle'
+
+-Upgrade has removed port 'ap_ready'
+
+-Upgrade has removed port 'ap_start'
+
+-Upgrade has added port 'interrupt'
+
+-Upgrade has added port 's_axi_AXILiteS_ARADDR'
+
+-Upgrade has added port 's_axi_AXILiteS_ARREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_ARVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_AWADDR'
+
+-Upgrade has added port 's_axi_AXILiteS_AWREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_AWVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_BREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_BRESP'
+
+-Upgrade has added port 's_axi_AXILiteS_BVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_RDATA'
+
+-Upgrade has added port 's_axi_AXILiteS_RREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_RRESP'
+
+-Upgrade has added port 's_axi_AXILiteS_RVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_WDATA'
+
+-Upgrade has added port 's_axi_AXILiteS_WREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_WSTRB'
+
+-Upgrade has added port 's_axi_AXILiteS_WVALID'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Feb 19 00:54:15 2017
+| Host         : matzipan-thinkpad running 64-bit elementary OS 0.4 Loki
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'slam_toplevel_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of slam_toplevel_0_0 (xilinx.com:hls:toplevel:1.0) from (Rev. 1702182215) to (Rev. 1702190052)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'slam_toplevel_0_0'.
+
+
+-Upgrade has removed interface 'ap_ctrl'
+
+-Upgrade has added interface 'interrupt' (xilinx.com:signal:interrupt:1.0)
+
+-Upgrade has added interface 's_axi_AXILiteS' (xilinx.com:interface:aximm:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'slam_toplevel_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ap_done'
+
+-Upgrade has removed port 'ap_idle'
+
+-Upgrade has removed port 'ap_ready'
+
+-Upgrade has removed port 'ap_start'
+
+-Upgrade has added port 'interrupt'
+
+-Upgrade has added port 's_axi_AXILiteS_ARADDR'
+
+-Upgrade has added port 's_axi_AXILiteS_ARREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_ARVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_AWADDR'
+
+-Upgrade has added port 's_axi_AXILiteS_AWREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_AWVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_BREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_BRESP'
+
+-Upgrade has added port 's_axi_AXILiteS_BVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_RDATA'
+
+-Upgrade has added port 's_axi_AXILiteS_RREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_RRESP'
+
+-Upgrade has added port 's_axi_AXILiteS_RVALID'
+
+-Upgrade has added port 's_axi_AXILiteS_WDATA'
+
+-Upgrade has added port 's_axi_AXILiteS_WREADY'
+
+-Upgrade has added port 's_axi_AXILiteS_WSTRB'
+
+-Upgrade has added port 's_axi_AXILiteS_WVALID'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sat Feb 18 22:17:03 2017
+| Host         : matzipan-thinkpad running 64-bit elementary OS 0.4 Loki
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'toplevel_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of toplevel_0 (xilinx.com:hls:toplevel:1.0) from (Rev. 1702182124) to (Rev. 1702182215)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'toplevel_0'.
+
+
+-Upgrade has removed interface 'output_V'
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'toplevel_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'output_V_TDATA'
+
+-Upgrade has removed port 'output_V_TREADY'
+
+-Upgrade has removed port 'output_V_TVALID'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sat Feb 18 22:17:03 2017
+| Host         : matzipan-thinkpad running 64-bit elementary OS 0.4 Loki
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'slam_toplevel_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of slam_toplevel_0_0 (xilinx.com:hls:toplevel:1.0) from (Rev. 1702182124) to (Rev. 1702182215)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'slam_toplevel_0_0'.
+
+
+-Upgrade has removed interface 'output_V'
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'slam_toplevel_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'output_V_TDATA'
+
+-Upgrade has removed port 'output_V_TREADY'
+
+-Upgrade has removed port 'output_V_TVALID'
+
+
