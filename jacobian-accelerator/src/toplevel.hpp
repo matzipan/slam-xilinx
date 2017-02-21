@@ -16,7 +16,8 @@ typedef union {
 } x_union;
 
 typedef ap_fixed<36, 10> x_fixed;
-typedef ap_ufixed<36, 10> x_ufixed;
+typedef ap_fixed<36, 13> x_fixed_bigger;
+typedef ap_ufixed<36, 13> x_ufixed;
 
 //Prototypes
 void toplevel(x_union* ocm, x_uint32 n);

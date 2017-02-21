@@ -51,7 +51,7 @@ void toplevel(x_union* ocm, x_uint32 n) {
 
 	x_union u;
 	x_uint12 current_ocm_read_position = 0;
-	x_uint12 current_ocm_write_position = 3+2+(2+4)*n;
+	x_uint12 current_ocm_write_position = 3+4+(2+4)*n;
 
 	for (int i = 0; i < 3; i++) {
 		x[i] = ocm[current_ocm_read_position++].f;
@@ -71,7 +71,7 @@ void toplevel(x_union* ocm, x_uint32 n) {
 		dx = ((x_fixed) ocm[current_ocm_read_position++].f) - x[0]; // xf[0]
 		dy = ((x_fixed) ocm[current_ocm_read_position++].f) - x[1]; // xf[1]
 
-		d2 = dx * dx + dy * dy;
+		d2 = ((x_fixed_bigger) dx) * ((x_fixed_bigger) dx) + ((x_fixed_bigger) dy) * ((x_fixed_bigger) dy);
 		fxp_sqrt(d, d2);
 
 		ocm[current_ocm_write_position++].f = d.to_float(); // zp[0]
@@ -92,12 +92,12 @@ void toplevel(x_union* ocm, x_uint32 n) {
 		ocm[current_ocm_write_position++].f = Hf[1][1];
 
 		// Jacobian wrt. vehicle states
-		Hv[0][0] = -Hf[0][0];
-		Hv[0][1] = -Hf[0][1];
-		Hv[0][2] = 0;
-		Hv[1][0] = -Hf[1][0];
-		Hv[1][1] = -Hf[1][1];
-		Hv[1][2] = -1;
+		ocm[current_ocm_write_position++].f = -Hf[0][0]; // Hv[0][0]
+		ocm[current_ocm_write_position++].f = -Hf[0][1]; // Hv[0][1]
+		ocm[current_ocm_write_position++].f = 0; // Hv[0][2]
+		ocm[current_ocm_write_position++].f = -Hf[1][0]; // Hv[1][0]
+		ocm[current_ocm_write_position++].f = -Hf[1][1]; // Hv[1][1]
+		ocm[current_ocm_write_position++].f = -1; // Hv[1][2]
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {
@@ -106,7 +106,7 @@ void toplevel(x_union* ocm, x_uint32 n) {
 		}
 
 		hls::matrix_multiply <hls::NoTranspose, hls::NoTranspose, 2, 2, 2, 2, 2, 2, x_fixed, x_fixed> (Hf, Pf, aux);
-		hls::matrix_multiply <hls::NoTranspose, hls::Transpose, 2, 2, 2, 2, 2, 2, x_fixed, x_fixed> (aux, Pf, Sf);
+		hls::matrix_multiply <hls::NoTranspose, hls::Transpose, 2, 2, 2, 2, 2, 2, x_fixed, x_fixed> (aux, Hf, Sf);
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {

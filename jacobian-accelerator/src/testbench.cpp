@@ -4,7 +4,7 @@
 
 int main() {
 	int current_ocm_write_position = 0;
-	int current_ocm_read_position = 3+2+(2+4)*6;
+	int current_ocm_read_position = 0;
 	x_uint32 n;
 
     x_union memory[300];
@@ -23,6 +23,8 @@ int main() {
 
     in>>n;
 
+    current_ocm_read_position = 3+4+(2+4)*n;
+
     for (int i = 0; i < n; i++) {
     	for (int j = 0; j < 2; j++) {
             in>>memory[current_ocm_write_position++].f;	// xf[i]
@@ -38,7 +40,7 @@ int main() {
 
     int failed = 0;
 
-    for (int i = 0; i < n * (2+4+4); i++) {
+    for (int i = 0; i < n * (2+4+6+4); i++) {
     	float test;
 
     	out>>test;
