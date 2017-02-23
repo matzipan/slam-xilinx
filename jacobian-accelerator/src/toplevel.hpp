@@ -10,16 +10,11 @@
 typedef ap_uint<12> x_uint12;
 typedef ap_uint<32> x_uint32;
 
-typedef union {
-	int i;
-	float f;
-} x_union;
-
 typedef ap_fixed<36, 10> x_fixed;
 typedef ap_fixed<36, 13> x_fixed_bigger;
 typedef ap_ufixed<36, 13> x_ufixed;
 
 //Prototypes
-void toplevel(x_union* ocm, x_uint32 n);
+void toplevel(float* ocm, x_uint32 n);
 
 #endif

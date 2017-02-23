@@ -7,18 +7,18 @@ int main() {
 	int current_ocm_read_position = 0;
 	x_uint32 n;
 
-    x_union memory[300];
+    float memory[300];
 
     std::ifstream in("test.in");
     std::ifstream out("test.out");
 
 
     for (int i = 0; i < 3; i++) {
-        in>>memory[current_ocm_write_position++].f;	// x[i]
+        in>>memory[current_ocm_write_position++];	// x[i]
     }
 
     for (int i = 0; i < 4; i++) {
-        in>>memory[current_ocm_write_position++].f;	// R[i][j]
+        in>>memory[current_ocm_write_position++];	// R[i][j]
     }
 
     in>>n;
@@ -27,11 +27,11 @@ int main() {
 
     for (int i = 0; i < n; i++) {
     	for (int j = 0; j < 2; j++) {
-            in>>memory[current_ocm_write_position++].f;	// xf[i]
+            in>>memory[current_ocm_write_position++];	// xf[i]
     	}
 
     	for (int j = 0; j < 4; j++) {
-			in>>memory[current_ocm_write_position++].f;	// Pf[i][j]
+			in>>memory[current_ocm_write_position++];	// Pf[i][j]
 		}
 
     }
@@ -45,8 +45,8 @@ int main() {
 
     	out>>test;
 
-    	if (abs(test - memory[current_ocm_read_position+i].f) > 0.00001) {
-    		printf("%.10f %.10f\n", test, memory[current_ocm_read_position+i].f);
+    	if (abs(test - memory[current_ocm_read_position+i]) > 0.00001) {
+    		printf("%.10f %.10f\n", test, memory[current_ocm_read_position+i]);
     		failed++;
     	}
     }

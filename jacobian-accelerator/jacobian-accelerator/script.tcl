@@ -14,7 +14,7 @@ add_files -tb jacobian-accelerator/src/test.in
 add_files -tb jacobian-accelerator/src/test.out
 add_files -tb jacobian-accelerator/src/testbench.cpp
 open_solution "jacobian-accelerator"
-set_part {xc7z010clg400-3}
+set_part {xc7z045ffg900-2}
 create_clock -period 100MHz -name default
 #source "./jacobian-accelerator/jacobian-accelerator/directives.tcl"
 csim_design
