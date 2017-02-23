@@ -4,7 +4,7 @@
 
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-create_project -in_memory -part xc7z010clg400-1
+create_project -in_memory -part xc7z045ffg900-2
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
@@ -14,7 +14,7 @@ set_property webtalk.parent_dir /usr/userfs/a/az579/slam-xilinx/vivado/vivado.ca
 set_property parent.project_path /usr/userfs/a/az579/slam-xilinx/vivado/vivado.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part digilentinc.com:zybo:part0:1.0 [current_project]
+set_property board_part xilinx.com:zc706:part0:1.3 [current_project]
 set_property ip_repo_paths /usr/userfs/a/az579/slam-xilinx/jacobian-accelerator/jacobian-accelerator/impl [current_project]
 add_files /usr/userfs/a/az579/slam-xilinx/vivado/vivado.srcs/sources_1/bd/vivado/vivado.bd
 set_property used_in_implementation false [get_files -all /usr/userfs/a/az579/slam-xilinx/vivado/vivado.srcs/sources_1/bd/vivado/ip/vivado_processing_system7_0_0/vivado_processing_system7_0_0.xdc]
@@ -34,7 +34,7 @@ foreach dcp [get_files -quiet -all *.dcp] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 
-synth_design -top vivado_wrapper -part xc7z010clg400-1
+synth_design -top vivado_wrapper -part xc7z045ffg900-2
 
 
 write_checkpoint -force -noxdef vivado_wrapper.dcp

@@ -48,8 +48,8 @@ set_msg_config -id {HDL 9-1654} -limit 100000
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
-  create_project -in_memory -part xc7z010clg400-1
-  set_property board_part digilentinc.com:zybo:part0:1.0 [current_project]
+  create_project -in_memory -part xc7z045ffg900-2
+  set_property board_part xilinx.com:zc706:part0:1.3 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
   set_property webtalk.parent_dir /usr/userfs/a/az579/slam-xilinx/vivado/vivado.cache/wt [current_project]
@@ -66,7 +66,7 @@ set rc [catch {
   set_property processing_order EARLY [get_files /usr/userfs/a/az579/slam-xilinx/vivado/vivado.srcs/sources_1/bd/vivado/ip/vivado_rst_processing_system7_0_100M_0/vivado_rst_processing_system7_0_100M_0_board.xdc]
   read_xdc -ref vivado_rst_processing_system7_0_100M_0 -cells U0 /usr/userfs/a/az579/slam-xilinx/vivado/vivado.srcs/sources_1/bd/vivado/ip/vivado_rst_processing_system7_0_100M_0/vivado_rst_processing_system7_0_100M_0.xdc
   set_property processing_order EARLY [get_files /usr/userfs/a/az579/slam-xilinx/vivado/vivado.srcs/sources_1/bd/vivado/ip/vivado_rst_processing_system7_0_100M_0/vivado_rst_processing_system7_0_100M_0.xdc]
-  link_design -top vivado_wrapper -part xc7z010clg400-1
+  link_design -top vivado_wrapper -part xc7z045ffg900-2
   write_hwdef -file vivado_wrapper.hwdef
   close_msg_db -file init_design.pb
 } RESULT]
@@ -127,21 +127,5 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step route_design
-}
-
-start_step write_bitstream
-set rc [catch {
-  create_msg_db write_bitstream.pb
-  catch { write_mem_info -force vivado_wrapper.mmi }
-  write_bitstream -force vivado_wrapper.bit 
-  catch { write_sysdef -hwdef vivado_wrapper.hwdef -bitfile vivado_wrapper.bit -meminfo vivado_wrapper.mmi -file vivado_wrapper.sysdef }
-  catch {write_debug_probes -quiet -force debug_nets}
-  close_msg_db -file write_bitstream.pb
-} RESULT]
-if {$rc} {
-  step_failed write_bitstream
-  return -code error $RESULT
-} else {
-  end_step write_bitstream
 }
 

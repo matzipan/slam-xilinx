@@ -1,8 +1,8 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-//Date        : Mon Feb 20 12:32:57 2017
-//Host        : pc603s running 64-bit Ubuntu 16.04.2 LTS
+//Date        : Thu Feb 23 18:21:27 2017
+//Host        : pc574s.cs.york.ac.uk running 64-bit Ubuntu 16.04.2 LTS
 //Command     : generate_target vivado.bd
 //Design      : vivado
 //Purpose     : IP block netlist
@@ -244,7 +244,7 @@ module s00_couplers_imp_1AV7JYT
   assign s00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[3:0];
   assign s00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  vivado_auto_pc_0 auto_pc
+  vivado_auto_pc_1 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_s00_couplers_ARADDR),
@@ -591,7 +591,7 @@ module s00_couplers_imp_F1FPHO
   assign s00_couplers_to_auto_pc_WLAST = S_AXI_wlast;
   assign s00_couplers_to_auto_pc_WSTRB = S_AXI_wstrb[3:0];
   assign s00_couplers_to_auto_pc_WVALID = S_AXI_wvalid;
-  vivado_auto_pc_1 auto_pc
+  vivado_auto_pc_0 auto_pc
        (.aclk(S_ACLK_1),
         .aresetn(S_ARESETN_1),
         .m_axi_araddr(auto_pc_to_s00_couplers_ARADDR),
@@ -664,7 +664,7 @@ module s00_couplers_imp_F1FPHO
         .s_axi_wvalid(s00_couplers_to_auto_pc_WVALID));
 endmodule
 
-(* CORE_GENERATION_INFO = "vivado,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=vivado,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "vivado.hwdef" *) 
+(* CORE_GENERATION_INFO = "vivado,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=vivado,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=1,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=5,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "vivado.hwdef" *) 
 module vivado
    (DDR_addr,
     DDR_ba,
@@ -822,41 +822,41 @@ module vivado
   wire processing_system7_0_axi_periph_M00_AXI_WVALID;
   wire [0:0]rst_processing_system7_0_100M_interconnect_aresetn;
   wire [0:0]rst_processing_system7_0_100M_peripheral_aresetn;
-  wire [31:0]toplevel_0_m_axi_ocm_V_ARADDR;
-  wire [1:0]toplevel_0_m_axi_ocm_V_ARBURST;
-  wire [3:0]toplevel_0_m_axi_ocm_V_ARCACHE;
-  wire [7:0]toplevel_0_m_axi_ocm_V_ARLEN;
-  wire [1:0]toplevel_0_m_axi_ocm_V_ARLOCK;
-  wire [2:0]toplevel_0_m_axi_ocm_V_ARPROT;
-  wire [3:0]toplevel_0_m_axi_ocm_V_ARQOS;
-  wire toplevel_0_m_axi_ocm_V_ARREADY;
-  wire [3:0]toplevel_0_m_axi_ocm_V_ARREGION;
-  wire [2:0]toplevel_0_m_axi_ocm_V_ARSIZE;
-  wire toplevel_0_m_axi_ocm_V_ARVALID;
-  wire [31:0]toplevel_0_m_axi_ocm_V_AWADDR;
-  wire [1:0]toplevel_0_m_axi_ocm_V_AWBURST;
-  wire [3:0]toplevel_0_m_axi_ocm_V_AWCACHE;
-  wire [7:0]toplevel_0_m_axi_ocm_V_AWLEN;
-  wire [1:0]toplevel_0_m_axi_ocm_V_AWLOCK;
-  wire [2:0]toplevel_0_m_axi_ocm_V_AWPROT;
-  wire [3:0]toplevel_0_m_axi_ocm_V_AWQOS;
-  wire toplevel_0_m_axi_ocm_V_AWREADY;
-  wire [3:0]toplevel_0_m_axi_ocm_V_AWREGION;
-  wire [2:0]toplevel_0_m_axi_ocm_V_AWSIZE;
-  wire toplevel_0_m_axi_ocm_V_AWVALID;
-  wire toplevel_0_m_axi_ocm_V_BREADY;
-  wire [1:0]toplevel_0_m_axi_ocm_V_BRESP;
-  wire toplevel_0_m_axi_ocm_V_BVALID;
-  wire [31:0]toplevel_0_m_axi_ocm_V_RDATA;
-  wire toplevel_0_m_axi_ocm_V_RLAST;
-  wire toplevel_0_m_axi_ocm_V_RREADY;
-  wire [1:0]toplevel_0_m_axi_ocm_V_RRESP;
-  wire toplevel_0_m_axi_ocm_V_RVALID;
-  wire [31:0]toplevel_0_m_axi_ocm_V_WDATA;
-  wire toplevel_0_m_axi_ocm_V_WLAST;
-  wire toplevel_0_m_axi_ocm_V_WREADY;
-  wire [3:0]toplevel_0_m_axi_ocm_V_WSTRB;
-  wire toplevel_0_m_axi_ocm_V_WVALID;
+  wire [31:0]toplevel_0_m_axi_ocm_ARADDR;
+  wire [1:0]toplevel_0_m_axi_ocm_ARBURST;
+  wire [3:0]toplevel_0_m_axi_ocm_ARCACHE;
+  wire [7:0]toplevel_0_m_axi_ocm_ARLEN;
+  wire [1:0]toplevel_0_m_axi_ocm_ARLOCK;
+  wire [2:0]toplevel_0_m_axi_ocm_ARPROT;
+  wire [3:0]toplevel_0_m_axi_ocm_ARQOS;
+  wire toplevel_0_m_axi_ocm_ARREADY;
+  wire [3:0]toplevel_0_m_axi_ocm_ARREGION;
+  wire [2:0]toplevel_0_m_axi_ocm_ARSIZE;
+  wire toplevel_0_m_axi_ocm_ARVALID;
+  wire [31:0]toplevel_0_m_axi_ocm_AWADDR;
+  wire [1:0]toplevel_0_m_axi_ocm_AWBURST;
+  wire [3:0]toplevel_0_m_axi_ocm_AWCACHE;
+  wire [7:0]toplevel_0_m_axi_ocm_AWLEN;
+  wire [1:0]toplevel_0_m_axi_ocm_AWLOCK;
+  wire [2:0]toplevel_0_m_axi_ocm_AWPROT;
+  wire [3:0]toplevel_0_m_axi_ocm_AWQOS;
+  wire toplevel_0_m_axi_ocm_AWREADY;
+  wire [3:0]toplevel_0_m_axi_ocm_AWREGION;
+  wire [2:0]toplevel_0_m_axi_ocm_AWSIZE;
+  wire toplevel_0_m_axi_ocm_AWVALID;
+  wire toplevel_0_m_axi_ocm_BREADY;
+  wire [1:0]toplevel_0_m_axi_ocm_BRESP;
+  wire toplevel_0_m_axi_ocm_BVALID;
+  wire [31:0]toplevel_0_m_axi_ocm_RDATA;
+  wire toplevel_0_m_axi_ocm_RLAST;
+  wire toplevel_0_m_axi_ocm_RREADY;
+  wire [1:0]toplevel_0_m_axi_ocm_RRESP;
+  wire toplevel_0_m_axi_ocm_RVALID;
+  wire [31:0]toplevel_0_m_axi_ocm_WDATA;
+  wire toplevel_0_m_axi_ocm_WLAST;
+  wire toplevel_0_m_axi_ocm_WREADY;
+  wire [3:0]toplevel_0_m_axi_ocm_WSTRB;
+  wire toplevel_0_m_axi_ocm_WVALID;
 
   vivado_axi_mem_intercon_0 axi_mem_intercon
        (.ACLK(processing_system7_0_FCLK_CLK0),
@@ -898,41 +898,41 @@ module vivado
         .M00_AXI_wvalid(axi_mem_intercon_M00_AXI_WVALID),
         .S00_ACLK(processing_system7_0_FCLK_CLK0),
         .S00_ARESETN(rst_processing_system7_0_100M_peripheral_aresetn),
-        .S00_AXI_araddr(toplevel_0_m_axi_ocm_V_ARADDR),
-        .S00_AXI_arburst(toplevel_0_m_axi_ocm_V_ARBURST),
-        .S00_AXI_arcache(toplevel_0_m_axi_ocm_V_ARCACHE),
-        .S00_AXI_arlen(toplevel_0_m_axi_ocm_V_ARLEN),
-        .S00_AXI_arlock(toplevel_0_m_axi_ocm_V_ARLOCK),
-        .S00_AXI_arprot(toplevel_0_m_axi_ocm_V_ARPROT),
-        .S00_AXI_arqos(toplevel_0_m_axi_ocm_V_ARQOS),
-        .S00_AXI_arready(toplevel_0_m_axi_ocm_V_ARREADY),
-        .S00_AXI_arregion(toplevel_0_m_axi_ocm_V_ARREGION),
-        .S00_AXI_arsize(toplevel_0_m_axi_ocm_V_ARSIZE),
-        .S00_AXI_arvalid(toplevel_0_m_axi_ocm_V_ARVALID),
-        .S00_AXI_awaddr(toplevel_0_m_axi_ocm_V_AWADDR),
-        .S00_AXI_awburst(toplevel_0_m_axi_ocm_V_AWBURST),
-        .S00_AXI_awcache(toplevel_0_m_axi_ocm_V_AWCACHE),
-        .S00_AXI_awlen(toplevel_0_m_axi_ocm_V_AWLEN),
-        .S00_AXI_awlock(toplevel_0_m_axi_ocm_V_AWLOCK),
-        .S00_AXI_awprot(toplevel_0_m_axi_ocm_V_AWPROT),
-        .S00_AXI_awqos(toplevel_0_m_axi_ocm_V_AWQOS),
-        .S00_AXI_awready(toplevel_0_m_axi_ocm_V_AWREADY),
-        .S00_AXI_awregion(toplevel_0_m_axi_ocm_V_AWREGION),
-        .S00_AXI_awsize(toplevel_0_m_axi_ocm_V_AWSIZE),
-        .S00_AXI_awvalid(toplevel_0_m_axi_ocm_V_AWVALID),
-        .S00_AXI_bready(toplevel_0_m_axi_ocm_V_BREADY),
-        .S00_AXI_bresp(toplevel_0_m_axi_ocm_V_BRESP),
-        .S00_AXI_bvalid(toplevel_0_m_axi_ocm_V_BVALID),
-        .S00_AXI_rdata(toplevel_0_m_axi_ocm_V_RDATA),
-        .S00_AXI_rlast(toplevel_0_m_axi_ocm_V_RLAST),
-        .S00_AXI_rready(toplevel_0_m_axi_ocm_V_RREADY),
-        .S00_AXI_rresp(toplevel_0_m_axi_ocm_V_RRESP),
-        .S00_AXI_rvalid(toplevel_0_m_axi_ocm_V_RVALID),
-        .S00_AXI_wdata(toplevel_0_m_axi_ocm_V_WDATA),
-        .S00_AXI_wlast(toplevel_0_m_axi_ocm_V_WLAST),
-        .S00_AXI_wready(toplevel_0_m_axi_ocm_V_WREADY),
-        .S00_AXI_wstrb(toplevel_0_m_axi_ocm_V_WSTRB),
-        .S00_AXI_wvalid(toplevel_0_m_axi_ocm_V_WVALID));
+        .S00_AXI_araddr(toplevel_0_m_axi_ocm_ARADDR),
+        .S00_AXI_arburst(toplevel_0_m_axi_ocm_ARBURST),
+        .S00_AXI_arcache(toplevel_0_m_axi_ocm_ARCACHE),
+        .S00_AXI_arlen(toplevel_0_m_axi_ocm_ARLEN),
+        .S00_AXI_arlock(toplevel_0_m_axi_ocm_ARLOCK),
+        .S00_AXI_arprot(toplevel_0_m_axi_ocm_ARPROT),
+        .S00_AXI_arqos(toplevel_0_m_axi_ocm_ARQOS),
+        .S00_AXI_arready(toplevel_0_m_axi_ocm_ARREADY),
+        .S00_AXI_arregion(toplevel_0_m_axi_ocm_ARREGION),
+        .S00_AXI_arsize(toplevel_0_m_axi_ocm_ARSIZE),
+        .S00_AXI_arvalid(toplevel_0_m_axi_ocm_ARVALID),
+        .S00_AXI_awaddr(toplevel_0_m_axi_ocm_AWADDR),
+        .S00_AXI_awburst(toplevel_0_m_axi_ocm_AWBURST),
+        .S00_AXI_awcache(toplevel_0_m_axi_ocm_AWCACHE),
+        .S00_AXI_awlen(toplevel_0_m_axi_ocm_AWLEN),
+        .S00_AXI_awlock(toplevel_0_m_axi_ocm_AWLOCK),
+        .S00_AXI_awprot(toplevel_0_m_axi_ocm_AWPROT),
+        .S00_AXI_awqos(toplevel_0_m_axi_ocm_AWQOS),
+        .S00_AXI_awready(toplevel_0_m_axi_ocm_AWREADY),
+        .S00_AXI_awregion(toplevel_0_m_axi_ocm_AWREGION),
+        .S00_AXI_awsize(toplevel_0_m_axi_ocm_AWSIZE),
+        .S00_AXI_awvalid(toplevel_0_m_axi_ocm_AWVALID),
+        .S00_AXI_bready(toplevel_0_m_axi_ocm_BREADY),
+        .S00_AXI_bresp(toplevel_0_m_axi_ocm_BRESP),
+        .S00_AXI_bvalid(toplevel_0_m_axi_ocm_BVALID),
+        .S00_AXI_rdata(toplevel_0_m_axi_ocm_RDATA),
+        .S00_AXI_rlast(toplevel_0_m_axi_ocm_RLAST),
+        .S00_AXI_rready(toplevel_0_m_axi_ocm_RREADY),
+        .S00_AXI_rresp(toplevel_0_m_axi_ocm_RRESP),
+        .S00_AXI_rvalid(toplevel_0_m_axi_ocm_RVALID),
+        .S00_AXI_wdata(toplevel_0_m_axi_ocm_WDATA),
+        .S00_AXI_wlast(toplevel_0_m_axi_ocm_WLAST),
+        .S00_AXI_wready(toplevel_0_m_axi_ocm_WREADY),
+        .S00_AXI_wstrb(toplevel_0_m_axi_ocm_WSTRB),
+        .S00_AXI_wvalid(toplevel_0_m_axi_ocm_WVALID));
   vivado_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),
@@ -1108,58 +1108,58 @@ module vivado
   vivado_toplevel_0_0 toplevel_0
        (.ap_clk(processing_system7_0_FCLK_CLK0),
         .ap_rst_n(rst_processing_system7_0_100M_peripheral_aresetn),
-        .m_axi_ocm_V_ARADDR(toplevel_0_m_axi_ocm_V_ARADDR),
-        .m_axi_ocm_V_ARBURST(toplevel_0_m_axi_ocm_V_ARBURST),
-        .m_axi_ocm_V_ARCACHE(toplevel_0_m_axi_ocm_V_ARCACHE),
-        .m_axi_ocm_V_ARLEN(toplevel_0_m_axi_ocm_V_ARLEN),
-        .m_axi_ocm_V_ARLOCK(toplevel_0_m_axi_ocm_V_ARLOCK),
-        .m_axi_ocm_V_ARPROT(toplevel_0_m_axi_ocm_V_ARPROT),
-        .m_axi_ocm_V_ARQOS(toplevel_0_m_axi_ocm_V_ARQOS),
-        .m_axi_ocm_V_ARREADY(toplevel_0_m_axi_ocm_V_ARREADY),
-        .m_axi_ocm_V_ARREGION(toplevel_0_m_axi_ocm_V_ARREGION),
-        .m_axi_ocm_V_ARSIZE(toplevel_0_m_axi_ocm_V_ARSIZE),
-        .m_axi_ocm_V_ARVALID(toplevel_0_m_axi_ocm_V_ARVALID),
-        .m_axi_ocm_V_AWADDR(toplevel_0_m_axi_ocm_V_AWADDR),
-        .m_axi_ocm_V_AWBURST(toplevel_0_m_axi_ocm_V_AWBURST),
-        .m_axi_ocm_V_AWCACHE(toplevel_0_m_axi_ocm_V_AWCACHE),
-        .m_axi_ocm_V_AWLEN(toplevel_0_m_axi_ocm_V_AWLEN),
-        .m_axi_ocm_V_AWLOCK(toplevel_0_m_axi_ocm_V_AWLOCK),
-        .m_axi_ocm_V_AWPROT(toplevel_0_m_axi_ocm_V_AWPROT),
-        .m_axi_ocm_V_AWQOS(toplevel_0_m_axi_ocm_V_AWQOS),
-        .m_axi_ocm_V_AWREADY(toplevel_0_m_axi_ocm_V_AWREADY),
-        .m_axi_ocm_V_AWREGION(toplevel_0_m_axi_ocm_V_AWREGION),
-        .m_axi_ocm_V_AWSIZE(toplevel_0_m_axi_ocm_V_AWSIZE),
-        .m_axi_ocm_V_AWVALID(toplevel_0_m_axi_ocm_V_AWVALID),
-        .m_axi_ocm_V_BREADY(toplevel_0_m_axi_ocm_V_BREADY),
-        .m_axi_ocm_V_BRESP(toplevel_0_m_axi_ocm_V_BRESP),
-        .m_axi_ocm_V_BVALID(toplevel_0_m_axi_ocm_V_BVALID),
-        .m_axi_ocm_V_RDATA(toplevel_0_m_axi_ocm_V_RDATA),
-        .m_axi_ocm_V_RLAST(toplevel_0_m_axi_ocm_V_RLAST),
-        .m_axi_ocm_V_RREADY(toplevel_0_m_axi_ocm_V_RREADY),
-        .m_axi_ocm_V_RRESP(toplevel_0_m_axi_ocm_V_RRESP),
-        .m_axi_ocm_V_RVALID(toplevel_0_m_axi_ocm_V_RVALID),
-        .m_axi_ocm_V_WDATA(toplevel_0_m_axi_ocm_V_WDATA),
-        .m_axi_ocm_V_WLAST(toplevel_0_m_axi_ocm_V_WLAST),
-        .m_axi_ocm_V_WREADY(toplevel_0_m_axi_ocm_V_WREADY),
-        .m_axi_ocm_V_WSTRB(toplevel_0_m_axi_ocm_V_WSTRB),
-        .m_axi_ocm_V_WVALID(toplevel_0_m_axi_ocm_V_WVALID),
-        .s_axi_AXILiteS_ARADDR(processing_system7_0_axi_periph_M00_AXI_ARADDR[4:0]),
-        .s_axi_AXILiteS_ARREADY(processing_system7_0_axi_periph_M00_AXI_ARREADY),
-        .s_axi_AXILiteS_ARVALID(processing_system7_0_axi_periph_M00_AXI_ARVALID),
-        .s_axi_AXILiteS_AWADDR(processing_system7_0_axi_periph_M00_AXI_AWADDR[4:0]),
-        .s_axi_AXILiteS_AWREADY(processing_system7_0_axi_periph_M00_AXI_AWREADY),
-        .s_axi_AXILiteS_AWVALID(processing_system7_0_axi_periph_M00_AXI_AWVALID),
-        .s_axi_AXILiteS_BREADY(processing_system7_0_axi_periph_M00_AXI_BREADY),
-        .s_axi_AXILiteS_BRESP(processing_system7_0_axi_periph_M00_AXI_BRESP),
-        .s_axi_AXILiteS_BVALID(processing_system7_0_axi_periph_M00_AXI_BVALID),
-        .s_axi_AXILiteS_RDATA(processing_system7_0_axi_periph_M00_AXI_RDATA),
-        .s_axi_AXILiteS_RREADY(processing_system7_0_axi_periph_M00_AXI_RREADY),
-        .s_axi_AXILiteS_RRESP(processing_system7_0_axi_periph_M00_AXI_RRESP),
-        .s_axi_AXILiteS_RVALID(processing_system7_0_axi_periph_M00_AXI_RVALID),
-        .s_axi_AXILiteS_WDATA(processing_system7_0_axi_periph_M00_AXI_WDATA),
-        .s_axi_AXILiteS_WREADY(processing_system7_0_axi_periph_M00_AXI_WREADY),
-        .s_axi_AXILiteS_WSTRB(processing_system7_0_axi_periph_M00_AXI_WSTRB),
-        .s_axi_AXILiteS_WVALID(processing_system7_0_axi_periph_M00_AXI_WVALID));
+        .m_axi_ocm_ARADDR(toplevel_0_m_axi_ocm_ARADDR),
+        .m_axi_ocm_ARBURST(toplevel_0_m_axi_ocm_ARBURST),
+        .m_axi_ocm_ARCACHE(toplevel_0_m_axi_ocm_ARCACHE),
+        .m_axi_ocm_ARLEN(toplevel_0_m_axi_ocm_ARLEN),
+        .m_axi_ocm_ARLOCK(toplevel_0_m_axi_ocm_ARLOCK),
+        .m_axi_ocm_ARPROT(toplevel_0_m_axi_ocm_ARPROT),
+        .m_axi_ocm_ARQOS(toplevel_0_m_axi_ocm_ARQOS),
+        .m_axi_ocm_ARREADY(toplevel_0_m_axi_ocm_ARREADY),
+        .m_axi_ocm_ARREGION(toplevel_0_m_axi_ocm_ARREGION),
+        .m_axi_ocm_ARSIZE(toplevel_0_m_axi_ocm_ARSIZE),
+        .m_axi_ocm_ARVALID(toplevel_0_m_axi_ocm_ARVALID),
+        .m_axi_ocm_AWADDR(toplevel_0_m_axi_ocm_AWADDR),
+        .m_axi_ocm_AWBURST(toplevel_0_m_axi_ocm_AWBURST),
+        .m_axi_ocm_AWCACHE(toplevel_0_m_axi_ocm_AWCACHE),
+        .m_axi_ocm_AWLEN(toplevel_0_m_axi_ocm_AWLEN),
+        .m_axi_ocm_AWLOCK(toplevel_0_m_axi_ocm_AWLOCK),
+        .m_axi_ocm_AWPROT(toplevel_0_m_axi_ocm_AWPROT),
+        .m_axi_ocm_AWQOS(toplevel_0_m_axi_ocm_AWQOS),
+        .m_axi_ocm_AWREADY(toplevel_0_m_axi_ocm_AWREADY),
+        .m_axi_ocm_AWREGION(toplevel_0_m_axi_ocm_AWREGION),
+        .m_axi_ocm_AWSIZE(toplevel_0_m_axi_ocm_AWSIZE),
+        .m_axi_ocm_AWVALID(toplevel_0_m_axi_ocm_AWVALID),
+        .m_axi_ocm_BREADY(toplevel_0_m_axi_ocm_BREADY),
+        .m_axi_ocm_BRESP(toplevel_0_m_axi_ocm_BRESP),
+        .m_axi_ocm_BVALID(toplevel_0_m_axi_ocm_BVALID),
+        .m_axi_ocm_RDATA(toplevel_0_m_axi_ocm_RDATA),
+        .m_axi_ocm_RLAST(toplevel_0_m_axi_ocm_RLAST),
+        .m_axi_ocm_RREADY(toplevel_0_m_axi_ocm_RREADY),
+        .m_axi_ocm_RRESP(toplevel_0_m_axi_ocm_RRESP),
+        .m_axi_ocm_RVALID(toplevel_0_m_axi_ocm_RVALID),
+        .m_axi_ocm_WDATA(toplevel_0_m_axi_ocm_WDATA),
+        .m_axi_ocm_WLAST(toplevel_0_m_axi_ocm_WLAST),
+        .m_axi_ocm_WREADY(toplevel_0_m_axi_ocm_WREADY),
+        .m_axi_ocm_WSTRB(toplevel_0_m_axi_ocm_WSTRB),
+        .m_axi_ocm_WVALID(toplevel_0_m_axi_ocm_WVALID),
+        .s_axi_control_ARADDR(processing_system7_0_axi_periph_M00_AXI_ARADDR[4:0]),
+        .s_axi_control_ARREADY(processing_system7_0_axi_periph_M00_AXI_ARREADY),
+        .s_axi_control_ARVALID(processing_system7_0_axi_periph_M00_AXI_ARVALID),
+        .s_axi_control_AWADDR(processing_system7_0_axi_periph_M00_AXI_AWADDR[4:0]),
+        .s_axi_control_AWREADY(processing_system7_0_axi_periph_M00_AXI_AWREADY),
+        .s_axi_control_AWVALID(processing_system7_0_axi_periph_M00_AXI_AWVALID),
+        .s_axi_control_BREADY(processing_system7_0_axi_periph_M00_AXI_BREADY),
+        .s_axi_control_BRESP(processing_system7_0_axi_periph_M00_AXI_BRESP),
+        .s_axi_control_BVALID(processing_system7_0_axi_periph_M00_AXI_BVALID),
+        .s_axi_control_RDATA(processing_system7_0_axi_periph_M00_AXI_RDATA),
+        .s_axi_control_RREADY(processing_system7_0_axi_periph_M00_AXI_RREADY),
+        .s_axi_control_RRESP(processing_system7_0_axi_periph_M00_AXI_RRESP),
+        .s_axi_control_RVALID(processing_system7_0_axi_periph_M00_AXI_RVALID),
+        .s_axi_control_WDATA(processing_system7_0_axi_periph_M00_AXI_WDATA),
+        .s_axi_control_WREADY(processing_system7_0_axi_periph_M00_AXI_WREADY),
+        .s_axi_control_WSTRB(processing_system7_0_axi_periph_M00_AXI_WSTRB),
+        .s_axi_control_WVALID(processing_system7_0_axi_periph_M00_AXI_WVALID));
 endmodule
 
 module vivado_axi_mem_intercon_0

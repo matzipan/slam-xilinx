@@ -1,8 +1,8 @@
 //Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
-//Date        : Mon Feb 20 12:32:57 2017
-//Host        : pc603s running 64-bit Ubuntu 16.04.2 LTS
+//Date        : Thu Feb 23 18:21:27 2017
+//Host        : pc574s.cs.york.ac.uk running 64-bit Ubuntu 16.04.2 LTS
 //Command     : generate_target vivado_wrapper.bd
 //Design      : vivado_wrapper
 //Purpose     : IP block netlist

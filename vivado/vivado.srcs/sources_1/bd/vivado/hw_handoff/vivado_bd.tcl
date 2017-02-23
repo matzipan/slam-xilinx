@@ -43,8 +43,8 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project project_1 myproj -part xc7z010clg400-1
-   set_property BOARD_PART digilentinc.com:zybo:part0:1.0 [current_project]
+   create_project project_1 myproj -part xc7z045ffg900-2
+   set_property BOARD_PART xilinx.com:zc706:part0:1.3 [current_project]
 }
 
 
@@ -212,7 +212,7 @@ CONFIG.PCW_CLK0_FREQ {100000000} \
 CONFIG.PCW_CLK1_FREQ {10000000} \
 CONFIG.PCW_CLK2_FREQ {10000000} \
 CONFIG.PCW_CLK3_FREQ {10000000} \
-CONFIG.PCW_CPU_CPU_6X4X_MAX_RANGE {667} \
+CONFIG.PCW_CPU_CPU_6X4X_MAX_RANGE {800} \
 CONFIG.PCW_CPU_CPU_PLL_FREQMHZ {1300.000} \
 CONFIG.PCW_CPU_PERIPHERAL_CLKSRC {ARM PLL} \
 CONFIG.PCW_CPU_PERIPHERAL_DIVISOR0 {2} \
@@ -292,6 +292,14 @@ CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ {50} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
+CONFIG.PCW_FTM_CTI_IN0 {<Select>} \
+CONFIG.PCW_FTM_CTI_IN1 {<Select>} \
+CONFIG.PCW_FTM_CTI_IN2 {<Select>} \
+CONFIG.PCW_FTM_CTI_IN3 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT0 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT1 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT2 {<Select>} \
+CONFIG.PCW_FTM_CTI_OUT3 {<Select>} \
 CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {0} \
 CONFIG.PCW_GPIO_EMIO_GPIO_IO {<Select>} \
 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {1} \
@@ -930,6 +938,14 @@ CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA3_PERIPHERAL_FREQMHZ.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_FPGA_FCLK0_ENABLE.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN0.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN1.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN2.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_IN3.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT0.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT1.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT2.VALUE_SRC {DEFAULT} \
+CONFIG.PCW_FTM_CTI_OUT3.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_EMIO_GPIO_IO.VALUE_SRC {DEFAULT} \
 CONFIG.PCW_GPIO_MIO_GPIO_IO.VALUE_SRC {DEFAULT} \
@@ -1341,8 +1357,8 @@ CONFIG.NUM_MI {1} \
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins processing_system7_0_axi_periph/S00_AXI]
-  connect_bd_intf_net -intf_net processing_system7_0_axi_periph_M00_AXI [get_bd_intf_pins processing_system7_0_axi_periph/M00_AXI] [get_bd_intf_pins toplevel_0/s_axi_AXILiteS]
-  connect_bd_intf_net -intf_net toplevel_0_m_axi_ocm_V [get_bd_intf_pins axi_mem_intercon/S00_AXI] [get_bd_intf_pins toplevel_0/m_axi_ocm_V]
+  connect_bd_intf_net -intf_net processing_system7_0_axi_periph_M00_AXI [get_bd_intf_pins processing_system7_0_axi_periph/M00_AXI] [get_bd_intf_pins toplevel_0/s_axi_control]
+  connect_bd_intf_net -intf_net toplevel_0_m_axi_ocm [get_bd_intf_pins axi_mem_intercon/S00_AXI] [get_bd_intf_pins toplevel_0/m_axi_ocm]
 
   # Create port connections
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_GP0_ACLK] [get_bd_pins processing_system7_0_axi_periph/ACLK] [get_bd_pins processing_system7_0_axi_periph/M00_ACLK] [get_bd_pins processing_system7_0_axi_periph/S00_ACLK] [get_bd_pins rst_processing_system7_0_100M/slowest_sync_clk] [get_bd_pins toplevel_0/ap_clk]
@@ -1351,16 +1367,16 @@ CONFIG.NUM_MI {1} \
   connect_bd_net -net rst_processing_system7_0_100M_peripheral_aresetn [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins processing_system7_0_axi_periph/M00_ARESETN] [get_bd_pins processing_system7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_processing_system7_0_100M/peripheral_aresetn] [get_bd_pins toplevel_0/ap_rst_n]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs toplevel_0/s_axi_AXILiteS/Reg] SEG_toplevel_0_Reg
-  create_bd_addr_seg -range 0x20000000 -offset 0x00000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm_V] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_DDR_LOWOCM] SEG_processing_system7_0_GP0_DDR_LOWOCM
-  create_bd_addr_seg -range 0x01000000 -offset 0xFC000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm_V] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_QSPI_LINEAR] SEG_processing_system7_0_GP0_QSPI_LINEAR
+  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs toplevel_0/s_axi_control/Reg] SEG_toplevel_0_Reg
+  create_bd_addr_seg -range 0x20000000 -offset 0x00000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_DDR_LOWOCM] SEG_processing_system7_0_GP0_DDR_LOWOCM
+  create_bd_addr_seg -range 0x01000000 -offset 0xFC000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_QSPI_LINEAR] SEG_processing_system7_0_GP0_QSPI_LINEAR
 
   # Exclude Address Segments
-  create_bd_addr_seg -range 0x00400000 -offset 0xE0000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm_V] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_IOP] SEG_processing_system7_0_GP0_IOP
-  exclude_bd_addr_seg [get_bd_addr_segs toplevel_0/Data_m_axi_ocm_V/SEG_processing_system7_0_GP0_IOP]
+  create_bd_addr_seg -range 0x00400000 -offset 0xE0000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_IOP] SEG_processing_system7_0_GP0_IOP
+  exclude_bd_addr_seg [get_bd_addr_segs toplevel_0/Data_m_axi_ocm/SEG_processing_system7_0_GP0_IOP]
 
-  create_bd_addr_seg -range 0x40000000 -offset 0x40000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm_V] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_M_AXI_GP0] SEG_processing_system7_0_GP0_M_AXI_GP0
-  exclude_bd_addr_seg [get_bd_addr_segs toplevel_0/Data_m_axi_ocm_V/SEG_processing_system7_0_GP0_M_AXI_GP0]
+  create_bd_addr_seg -range 0x40000000 -offset 0x40000000 [get_bd_addr_spaces toplevel_0/Data_m_axi_ocm] [get_bd_addr_segs processing_system7_0/S_AXI_GP0/GP0_M_AXI_GP0] SEG_processing_system7_0_GP0_M_AXI_GP0
+  exclude_bd_addr_seg [get_bd_addr_segs toplevel_0/Data_m_axi_ocm/SEG_processing_system7_0_GP0_M_AXI_GP0]
 
 
   # Perform GUI Layout
@@ -1374,17 +1390,17 @@ preplace inst toplevel_0 -pg 1 -lvl 4 -y 340 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 5 -y 390 -defaultsOSRD
 preplace inst processing_system7_0_axi_periph -pg 1 -lvl 3 -y 220 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y 330 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 0 2 NJ 20 430
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 3 1 1110
+preplace netloc processing_system7_0_DDR 1 0 2 NJ 20 640
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 3 1 1320
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 2 NJ 160 N
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 1 N
-preplace netloc axi_mem_intercon_M00_AXI 1 0 6 0 530 NJ 530 NJ 530 NJ 530 N 530 1830
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 2 3 820 360 1100 430 1480
-preplace netloc processing_system7_0_FIXED_IO 1 0 2 NJ 40 420
-preplace netloc toplevel_0_m_axi_ocm_V 1 4 1 N
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 2 3 800 410 NJ 410 1470
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 10 470 430 340 810 340 1110 420 1490
-levelinfo -pg 1 -20 220 630 960 1300 1690 1850 -top 0 -bot 550
+preplace netloc axi_mem_intercon_M00_AXI 1 0 6 NJ 530 NJ 530 NJ 530 NJ 530 N 530 1980
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 2 3 1010 360 1310 430 1660
+preplace netloc processing_system7_0_FIXED_IO 1 0 2 NJ 40 630
+preplace netloc toplevel_0_m_axi_ocm 1 4 1 N
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 2 3 990 410 NJ 410 1650
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 10 470 640 340 1000 340 1320 420 1670
+levelinfo -pg 1 -20 430 820 1160 1490 1830 2000 -top -280 -bot 550
 ",
 }
 
