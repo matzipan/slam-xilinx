@@ -67,6 +67,16 @@
 			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/toplevel.hpp</location>
 		</link>
 		<link>
+			<name>testbench/test.in</name>
+			<type>1</type>
+			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/test.in</location>
+		</link>
+		<link>
+			<name>testbench/test.out</name>
+			<type>1</type>
+			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/test.out</location>
+		</link>
+		<link>
 			<name>testbench/testbench.cpp</name>
 			<type>1</type>
 			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/testbench.cpp</location>

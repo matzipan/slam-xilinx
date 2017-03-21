@@ -25,12 +25,12 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.801942497" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.756580698" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.453767099" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/etc"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.134674540" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -43,12 +43,12 @@
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1783806489" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1266121165" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1250671168" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/etc"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
 								</option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.733585594" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -59,14 +59,14 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1449562557" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
 								<option id="gnu.c.link.option.paths.1519480376" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.c.link.option.libs.669568226" name="Libraries (-l)" superClass="gnu.c.link.option.libs"/>
 								<option id="gnu.c.link.option.ldflags.399248472" name="Linker flags" superClass="gnu.c.link.option.ldflags"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.759786065" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.paths.1696417905" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.277001419" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
 								<option id="gnu.cpp.link.option.flags.1570918883" name="Linker flags" superClass="gnu.cpp.link.option.flags"/>
@@ -111,12 +111,12 @@
 								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.672979478" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.1181485125" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.152103061" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/etc"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.241272066" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -124,25 +124,25 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.2144242063" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.1257719616" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1255299029" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/auto_cc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include/etc"/>
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1433205329" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.1118496176" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release">
 								<option id="gnu.c.link.option.paths.1655595851" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.c.link.option.libs.1069819060" name="Libraries (-l)" superClass="gnu.c.link.option.libs"/>
 								<option id="gnu.c.link.option.ldflags.2051965345" name="Linker flags" superClass="gnu.c.link.option.ldflags"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.1403194732" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
 								<option id="gnu.cpp.link.option.paths.1515877327" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="/media/matzipan/5071fbd7-b050-454d-9bd0-cccddfb972ef/matzipan/Xilinx/Vivado_HLS/2016.4/lnx64/tools/systemc/lib"/>
+									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/lib"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.753583388" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
 								<option id="gnu.cpp.link.option.flags.1876145643" name="Linker flags" superClass="gnu.cpp.link.option.flags"/>

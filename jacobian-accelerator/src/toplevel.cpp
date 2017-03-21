@@ -40,8 +40,8 @@ x_fixed trigonometricOffset(x_fixed ang) {
 }
 
 //Top-level function
-void toplevel(float* ocm, x_uint32 n) {
-	#pragma HLS INTERFACE m_axi depth=180 port=ocm
+void toplevel(float memory[], x_uint32 n) {
+	#pragma HLS INTERFACE m_axi port=ocm
 	#pragma HLS INTERFACE s_axilite port=n bundle=control register
 	#pragma HLS INTERFACE s_axilite port=return bundle=control register
 
@@ -49,16 +49,17 @@ void toplevel(float* ocm, x_uint32 n) {
 	//@TODO array reshape
 	//@TODO https://wiki.york.ac.uk/display/RTS/Vivado+HLS+Knowledge+Base#VivadoHLSKnowledgeBase-ForcingandPreventingtheUseofBlockRAMs
 
-	x_uint12 current_ocm_read_position = 0;
-	x_uint12 current_ocm_write_position = 3+4+(2+4)*n;
+	x_uint32 current_memory_read_position = 0;
+	x_uint32 current_memory_write_position = 3+4+(2+4)*n;
 
 	for (int i = 0; i < 3; i++) {
-		x[i] = ocm[current_ocm_read_position++];
+		x[i] = memory[current_memory_read_position++];
 	}
+
 
 	for (int j = 0; j < 2; j++) {
 		for (int k = 0; k < 2; k++) {
-			R[j][k] = ocm[current_ocm_read_position++];
+			R[j][k] = memory[current_memory_read_position++];
 		}
 	}
 
@@ -67,17 +68,17 @@ void toplevel(float* ocm, x_uint32 n) {
 
 	main_loop:for (int i = 0; i < n; i++) {
 		#pragma HLS LOOP_TRIPCOUNT max=60 avg=10
-		dx = ((x_fixed) ocm[current_ocm_read_position++]) - x[0]; // xf[0]
-		dy = ((x_fixed) ocm[current_ocm_read_position++]) - x[1]; // xf[1]
+		dx = ((x_fixed) memory[current_memory_read_position++]) - x[0]; // xf[0]
+		dy = ((x_fixed) memory[current_memory_read_position++]) - x[1]; // xf[1]
 
 		d2 = ((x_fixed_bigger) dx) * ((x_fixed_bigger) dx) + ((x_fixed_bigger) dy) * ((x_fixed_bigger) dy);
 		fxp_sqrt(d, d2);
 
-		ocm[current_ocm_write_position++] = d.to_float(); // zp[0]
+		memory[current_memory_write_position++] = d.to_float(); // zp[0]
 
 		phase_t zn;
 		top_atan2(dy, dx, &zn);
-		ocm[current_ocm_write_position++] = trigonometricOffset(zn - x[2]).to_float();  // zp[1]
+		memory[current_memory_write_position++] = trigonometricOffset(zn - x[2]).to_float();  // zp[1]
 
 		// Jacobian wrt. feature states
 		Hf[0][0] = dx / d;
@@ -85,22 +86,22 @@ void toplevel(float* ocm, x_uint32 n) {
 		Hf[1][0] = -dy / d2;
 		Hf[1][1] = dx / d2;
 
-		ocm[current_ocm_write_position++] = Hf[0][0].to_float();
-		ocm[current_ocm_write_position++] = Hf[0][1].to_float();
-		ocm[current_ocm_write_position++] = Hf[1][0].to_float();
-		ocm[current_ocm_write_position++] = Hf[1][1].to_float();
+		memory[current_memory_write_position++] = Hf[0][0].to_float();
+		memory[current_memory_write_position++] = Hf[0][1].to_float();
+		memory[current_memory_write_position++] = Hf[1][0].to_float();
+		memory[current_memory_write_position++] = Hf[1][1].to_float();
 
 		// Jacobian wrt. vehicle states
-		ocm[current_ocm_write_position++] = (-Hf[0][0]).to_float(); // Hv[0][0]
-		ocm[current_ocm_write_position++] = (-Hf[0][1]).to_float(); // Hv[0][1]
-		ocm[current_ocm_write_position++] = 0; // Hv[0][2]
-		ocm[current_ocm_write_position++] = (-Hf[1][0]).to_float(); // Hv[1][0]
-		ocm[current_ocm_write_position++] = (-Hf[1][1]).to_float(); // Hv[1][1]
-		ocm[current_ocm_write_position++] = -1; // Hv[1][2]
+		memory[current_memory_write_position++] = (-Hf[0][0]).to_float(); // Hv[0][0]
+		memory[current_memory_write_position++] = (-Hf[0][1]).to_float(); // Hv[0][1]
+		memory[current_memory_write_position++] = 0; // Hv[0][2]
+		memory[current_memory_write_position++] = (-Hf[1][0]).to_float(); // Hv[1][0]
+		memory[current_memory_write_position++] = (-Hf[1][1]).to_float(); // Hv[1][1]
+		memory[current_memory_write_position++] = -1; // Hv[1][2]
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {
-				Pf[j][k] = ocm[current_ocm_read_position++];
+				Pf[j][k] = memory[current_memory_read_position++];
 			}
 		}
 
@@ -109,7 +110,7 @@ void toplevel(float* ocm, x_uint32 n) {
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {
-				ocm[current_ocm_write_position++] = (Sf[j][k] + R[j][k]).to_float(); // Sf[j][k]
+				memory[current_memory_write_position++] = (Sf[j][k] + R[j][k]).to_float(); // Sf[j][k]
 			}
 		}
 	}

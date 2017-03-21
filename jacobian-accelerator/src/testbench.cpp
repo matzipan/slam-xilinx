@@ -1,13 +1,37 @@
-#include "toplevel.hpp"
-#include "fstream"
-#include "math.h"
+#ifdef NATIVE_TESTBENCH
+	#include "xtoplevel.h"
+	#include <stdexcept>
+#else
+	#include "toplevel.hpp"
+	#include "fstream"
+	#include "math.h"
+
+	#define OCM_SIZE 256*1024
+	#define OCM_LOC 0xFFFC0000
+#endif
 
 int main() {
 	int current_ocm_write_position = 0;
 	int current_ocm_read_position = 0;
+#ifdef NATIVE_TESTBENCH
+	uint n;
+#else
 	x_uint32 n;
+#endif
 
+#ifdef NATIVE_TESTBENCH
+	printf("Mapping OCM: 256 KB @ 0x%x\n", OCM_LOC);
+
+	// The parameter for open controls whether it uses caching or not.
+	int memd = open("/dev/mem" , O_RDWR | O_SYNC);
+	if(memd < 0) {
+		throw std::runtime_error("Error opening memory device for OCM");
+	}
+
+	float* memory = (float*) mmap(NULL, OCM_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, memd, OCM_LOC);
+#else
     float memory[300];
+#endif
 
     std::ifstream in("test.in");
     std::ifstream out("test.out");
@@ -35,8 +59,21 @@ int main() {
 		}
 
     }
+#ifdef NATIVE_TESTBENCH
+    XToplevel xToplevelInstance;
 
+    XToplevel_Initialize(&xToplevelInstance, "toplevel");
+
+    XToplevel_Set_n_V(&xToplevelInstance, n);
+
+    XToplevel_Start(&xToplevelInstance);
+
+    while(!XToplevel_IsDone(&xToplevelInstance)) {
+        printf("Not done\n");
+    }
+#else
     toplevel(memory, n);
+#endif
 
     int failed = 0;
 

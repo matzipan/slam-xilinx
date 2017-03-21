@@ -15,6 +15,6 @@ typedef ap_fixed<36, 13> x_fixed_bigger;
 typedef ap_ufixed<36, 13> x_ufixed;
 
 //Prototypes
-void toplevel(float* ocm, x_uint32 n);
+void toplevel(float ocm[], x_uint32 n);
 
 #endif

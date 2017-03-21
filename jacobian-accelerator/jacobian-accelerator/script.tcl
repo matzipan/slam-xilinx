@@ -10,11 +10,11 @@ add_files jacobian-accelerator/src/cordic_atan2.hpp
 add_files jacobian-accelerator/src/fxp_sqrt.h
 add_files jacobian-accelerator/src/toplevel.cpp
 add_files jacobian-accelerator/src/toplevel.hpp
-add_files -tb jacobian-accelerator/src/test.in
-add_files -tb jacobian-accelerator/src/test.out
 add_files -tb jacobian-accelerator/src/testbench.cpp
+add_files -tb jacobian-accelerator/src/test.out
+add_files -tb jacobian-accelerator/src/test.in
 open_solution "jacobian-accelerator"
-set_part {xc7z045ffg900-2}
+set_part {xc7z010clg400-1}
 create_clock -period 100MHz -name default
 #source "./jacobian-accelerator/jacobian-accelerator/directives.tcl"
 csim_design
