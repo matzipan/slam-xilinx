@@ -1,4 +1,5 @@
 #include "toplevel.hpp"
+#include <string.h>
 #include <hls_math.h>
 #include <hls_linear_algebra.h>
 #include "fxp_sqrt.h"
@@ -6,6 +7,20 @@
 
 #define MAX_OBSERVED_LANDMARKS 300
 #define X_PI 3.14159265358979323846
+#define READ_SIZE(n) (3+4+(2+4)*n)
+#define WRITE_SIZE(n) ((2+4+6+4)*n)
+
+#define USE_MEMCPY
+
+#ifdef USE_MEMCPY
+	float readBram[READ_SIZE(MAX_OBSERVED_LANDMARKS)];
+	float writeBram[WRITE_SIZE(MAX_OBSERVED_LANDMARKS)];
+	#define readMemory readBram
+	#define writeMemory writeBram
+#else
+	#define readMemory memory
+	#define writeMemory memory
+#endif
 
 x_fixed
 	x[3],
@@ -41,25 +56,32 @@ x_fixed trigonometricOffset(x_fixed ang) {
 
 //Top-level function
 void toplevel(float memory[], x_uint32 n) {
-	#pragma HLS INTERFACE m_axi port=ocm
+	#pragma HLS INTERFACE m_axi port=memory
 	#pragma HLS INTERFACE s_axilite port=n bundle=control register
 	#pragma HLS INTERFACE s_axilite port=return bundle=control register
 
-	//@TODO use memcpy for burst mode
 	//@TODO array reshape
-	//@TODO https://wiki.york.ac.uk/display/RTS/Vivado+HLS+Knowledge+Base#VivadoHLSKnowledgeBase-ForcingandPreventingtheUseofBlockRAMs
 
-	x_uint32 current_memory_read_position = 0;
-	x_uint32 current_memory_write_position = 3+4+(2+4)*n;
+#ifdef USE_MEMCPY
+	memcpy(readMemory, memory, READ_SIZE(n)*sizeof(float));
+#endif
+
+	x_uint32 currentMemoryReadPosition = 0;
+
+#ifdef USE_MEMCPY
+	x_uint32 currentMemoryWritePosition = 0;
+#else
+	x_uint32 currentMemoryWritePosition = 3+4+(2+4)*n;
+#endif
 
 	for (int i = 0; i < 3; i++) {
-		x[i] = memory[current_memory_read_position++];
+		x[i] = readMemory[currentMemoryReadPosition++];
 	}
 
 
 	for (int j = 0; j < 2; j++) {
 		for (int k = 0; k < 2; k++) {
-			R[j][k] = memory[current_memory_read_position++];
+			R[j][k] = readMemory[currentMemoryReadPosition++];
 		}
 	}
 
@@ -68,17 +90,17 @@ void toplevel(float memory[], x_uint32 n) {
 
 	main_loop:for (int i = 0; i < n; i++) {
 		#pragma HLS LOOP_TRIPCOUNT max=60 avg=10
-		dx = ((x_fixed) memory[current_memory_read_position++]) - x[0]; // xf[0]
-		dy = ((x_fixed) memory[current_memory_read_position++]) - x[1]; // xf[1]
+		dx = ((x_fixed) readMemory[currentMemoryReadPosition++]) - x[0]; // xf[0]
+		dy = ((x_fixed) readMemory[currentMemoryReadPosition++]) - x[1]; // xf[1]
 
 		d2 = ((x_fixed_bigger) dx) * ((x_fixed_bigger) dx) + ((x_fixed_bigger) dy) * ((x_fixed_bigger) dy);
 		fxp_sqrt(d, d2);
 
-		memory[current_memory_write_position++] = d.to_float(); // zp[0]
+		writeMemory[currentMemoryWritePosition++] = d.to_float(); // zp[0]
 
 		phase_t zn;
 		top_atan2(dy, dx, &zn);
-		memory[current_memory_write_position++] = trigonometricOffset(zn - x[2]).to_float();  // zp[1]
+		writeMemory[currentMemoryWritePosition++] = trigonometricOffset(zn - x[2]).to_float();  // zp[1]
 
 		// Jacobian wrt. feature states
 		Hf[0][0] = dx / d;
@@ -86,22 +108,22 @@ void toplevel(float memory[], x_uint32 n) {
 		Hf[1][0] = -dy / d2;
 		Hf[1][1] = dx / d2;
 
-		memory[current_memory_write_position++] = Hf[0][0].to_float();
-		memory[current_memory_write_position++] = Hf[0][1].to_float();
-		memory[current_memory_write_position++] = Hf[1][0].to_float();
-		memory[current_memory_write_position++] = Hf[1][1].to_float();
+		writeMemory[currentMemoryWritePosition++] = Hf[0][0].to_float();
+		writeMemory[currentMemoryWritePosition++] = Hf[0][1].to_float();
+		writeMemory[currentMemoryWritePosition++] = Hf[1][0].to_float();
+		writeMemory[currentMemoryWritePosition++] = Hf[1][1].to_float();
 
 		// Jacobian wrt. vehicle states
-		memory[current_memory_write_position++] = (-Hf[0][0]).to_float(); // Hv[0][0]
-		memory[current_memory_write_position++] = (-Hf[0][1]).to_float(); // Hv[0][1]
-		memory[current_memory_write_position++] = 0; // Hv[0][2]
-		memory[current_memory_write_position++] = (-Hf[1][0]).to_float(); // Hv[1][0]
-		memory[current_memory_write_position++] = (-Hf[1][1]).to_float(); // Hv[1][1]
-		memory[current_memory_write_position++] = -1; // Hv[1][2]
+		writeMemory[currentMemoryWritePosition++] = (-Hf[0][0]).to_float(); // Hv[0][0]
+		writeMemory[currentMemoryWritePosition++] = (-Hf[0][1]).to_float(); // Hv[0][1]
+		writeMemory[currentMemoryWritePosition++] = 0; // Hv[0][2]
+		writeMemory[currentMemoryWritePosition++] = (-Hf[1][0]).to_float(); // Hv[1][0]
+		writeMemory[currentMemoryWritePosition++] = (-Hf[1][1]).to_float(); // Hv[1][1]
+		writeMemory[currentMemoryWritePosition++] = -1; // Hv[1][2]
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {
-				Pf[j][k] = memory[current_memory_read_position++];
+				Pf[j][k] = readMemory[currentMemoryReadPosition++];
 			}
 		}
 
@@ -110,8 +132,12 @@ void toplevel(float memory[], x_uint32 n) {
 
 		for (int j = 0; j < 2; j++) {
 			for (int k = 0; k < 2; k++) {
-				memory[current_memory_write_position++] = (Sf[j][k] + R[j][k]).to_float(); // Sf[j][k]
+				writeMemory[currentMemoryWritePosition++] = (Sf[j][k] + R[j][k]).to_float(); // Sf[j][k]
 			}
 		}
 	}
+
+#ifdef USE_MEMCPY
+	memcpy(memory+READ_SIZE(n), writeMemory, WRITE_SIZE(n)*sizeof(float));
+#endif
 }
