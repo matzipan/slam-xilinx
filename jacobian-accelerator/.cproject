@@ -27,10 +27,11 @@
 								<option id="gnu.cpp.compiler.option.include.paths.453767099" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project/zynq-slam"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.134674540" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -45,10 +46,11 @@
 								<option id="gnu.c.compiler.option.include.paths.1250671168" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project/zynq-slam"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
 								</option>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.733585594" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AESL_TB"/>
@@ -113,10 +115,11 @@
 								<option id="gnu.cpp.compiler.option.include.paths.152103061" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project/zynq-slam"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.241272066" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -126,10 +129,11 @@
 								<option id="gnu.c.compiler.option.include.paths.1255299029" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/auto_cc/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/lnx64/tools/systemc/include"/>
-									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project/zynq-slam"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/ap_sysc"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include"/>
 									<listOptionValue builtIn="false" value="/media/matzipan/Xilinx/software/Vivado_HLS/2016.2/include/etc"/>
+									<listOptionValue builtIn="false" value="/home/matzipan/Workspace/project"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1433205329" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>

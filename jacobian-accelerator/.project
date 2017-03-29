@@ -67,6 +67,16 @@
 			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/toplevel.hpp</location>
 		</link>
 		<link>
+			<name>testbench/test-multiparticle.in</name>
+			<type>1</type>
+			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/test-multiparticle.in</location>
+		</link>
+		<link>
+			<name>testbench/test-multiparticle.out</name>
+			<type>1</type>
+			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/test-multiparticle.out</location>
+		</link>
+		<link>
 			<name>testbench/test.in</name>
 			<type>1</type>
 			<location>/home/matzipan/Workspace/project/zynq-slam/jacobian-accelerator/src/test.in</location>
