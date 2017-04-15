@@ -99,10 +99,10 @@ float HfOut[2][2];
 		}
 	}
 
-	x_fixed dx, dy;
-	x_ufixed d2, d;
-
 	main_loop:for (x_landmark_iterator i = 0; i < n; i++) {
+		x_fixed dx, dy;
+		x_ufixed d2, d;
+
 		#pragma HLS LOOP_TRIPCOUNT max=60 avg=10
 		dx = ((x_fixed) readMemory[currentMemoryReadPosition++]) - x[0]; // xf[0]
 		dy = ((x_fixed) readMemory[currentMemoryReadPosition++]) - x[1]; // xf[1]
