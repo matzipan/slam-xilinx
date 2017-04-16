@@ -12,9 +12,15 @@ typedef ap_uint<12> x_uint12;
 typedef ap_uint<18> x_uint18;
 typedef ap_uint<32> x_uint32;
 
-typedef ap_fixed<36, 10> x_fixed;
-typedef ap_fixed<36, 13> x_fixed_bigger;
-typedef ap_ufixed<36, 13> x_ufixed;
+typedef ap_fixed<21, 8> x_fixedX;
+
+typedef ap_fixed<20, 7> x_fixed7;
+typedef ap_ufixed<19, 6> x_ufixed6;
+typedef ap_ufixed<25, 12> x_ufixed12;
+typedef ap_fixed<26, 13> x_fixed13;
+typedef ap_ufixed<14, 0> x_ufixedR;
+typedef ap_fixed<16, 2> x_fixedHSP; // Merged these two so matrix_multiply is easier to set up
+typedef ap_fixed<16, 3> x_fixedTrigonometric; // This is needs to accomodate x_ufixed6 and trigonometricOffset
 
 #define USE_MEMCPY
 #define MULTIPARTICLE

@@ -17,15 +17,15 @@ typedef ap_uint<9> x_landmark_iterator; // 9 = ceil(log2(MAX_OBSERVED_LANDMARKS)
 
 #define X_PI 3.14159265358979323846
 #define X_2PI 6.28318530718
-#define X_PI_FIXED ((x_fixed) X_PI)
-#define X_2PI_FIXED ((x_fixed) X_2PI)
+#define X_PI_PHASE ((phase_t) X_PI)
+#define X_2PI_FIXED ((phase_t) X_2PI)
 
 #define READ_SIZE(landmarks) ((3+4+(2+4)*landmarks))
 #define WRITE_SIZE(landmarks) (((2+4+6+4)*landmarks))
 
-x_fixed trigonometricOffset(x_fixed ang) {
+x_fixedTrigonometric trigonometricOffset(phase_t ang) {
 #pragma HLS INLINE
-	x_fixed pi = X_PI;
+	phase_t pi = X_PI;
 
 	int n;
 
@@ -34,11 +34,11 @@ x_fixed trigonometricOffset(x_fixed ang) {
         ang = ang - n * X_2PI_FIXED;
     }
 
-    if (ang > X_PI_FIXED) {
+    if (ang > X_PI_PHASE) {
         ang = ang - X_2PI_FIXED;
     }
 
-    if (ang < -X_PI_FIXED) {
+    if (ang < -X_PI_PHASE) {
         ang = ang + X_2PI_FIXED;
     }
 
@@ -65,14 +65,9 @@ x_fixed trigonometricOffset(x_fixed ang) {
 	#define writeMemory memory
 #endif
 
-x_fixed
-	x[3],
-	Pf[2][2],
-	Hf[2][2],
-	Sf[2][2],
-	zp[2],
-	R[2][2],
-	aux[2][2];
+x_fixedX x[3];
+x_ufixedR R[2][2];
+x_fixedHSP Hf[2][2], Sf[2][2], Pf[2][2], aux[2][2];
 
 float HfOut[2][2];
 
@@ -100,14 +95,15 @@ float HfOut[2][2];
 	}
 
 	main_loop:for (x_landmark_iterator i = 0; i < n; i++) {
-		x_fixed dx, dy;
-		x_ufixed d2, d;
+		x_fixed7 dx, dy;
+		x_ufixed6 d;
+		x_ufixed12 d2;
 
 		#pragma HLS LOOP_TRIPCOUNT max=60 avg=10
-		dx = ((x_fixed) readMemory[currentMemoryReadPosition++]) - x[0]; // xf[0]
-		dy = ((x_fixed) readMemory[currentMemoryReadPosition++]) - x[1]; // xf[1]
+		dx = ((x_fixedX) readMemory[currentMemoryReadPosition++]) - x[0]; // xf[0]
+		dy = ((x_fixedX) readMemory[currentMemoryReadPosition++]) - x[1]; // xf[1]
 
-		d2 = ((x_fixed_bigger) dx) * ((x_fixed_bigger) dx) + ((x_fixed_bigger) dy) * ((x_fixed_bigger) dy);
+		d2 = ((x_fixed13) dx) * ((x_fixed13) dx) + ((x_fixed13) dy) * ((x_fixed13) dy);
 
 		fxp_sqrt(d, d2);
 
@@ -149,8 +145,8 @@ float HfOut[2][2];
 			}
 		}
 
-		hls::matrix_multiply <hls::NoTranspose, hls::NoTranspose, 2, 2, 2, 2, 2, 2, x_fixed, x_fixed> (Hf, Pf, aux);
-		hls::matrix_multiply <hls::NoTranspose, hls::Transpose, 2, 2, 2, 2, 2, 2, x_fixed, x_fixed> (aux, Hf, Sf);
+		hls::matrix_multiply <hls::NoTranspose, hls::NoTranspose, 2, 2, 2, 2, 2, 2, x_fixedHSP, x_fixedHSP> (Hf, Pf, aux); //@TODO $Hf * Pf[i]$ had values in the $[-0.005, 0.003]$
+		hls::matrix_multiply <hls::NoTranspose, hls::Transpose, 2, 2, 2, 2, 2, 2, x_fixedHSP, x_fixedHSP> (aux, Hf, Sf); //@TODO When also multiplying with the transpose of \texttt{Hf}, the value range was $[-0.0003, 0.01]$.
 
 		for (x_uint4 j = 0; j < 2; j++) {
 			for (x_uint4 k = 0; k < 2; k++) {
