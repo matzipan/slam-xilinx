@@ -129,11 +129,12 @@ int main() {
 			float comparison;
 
 			test>>comparison;
+			printf("%u %.10f %.10f\n", current_ocm_read_position+i, comparison, memory[current_ocm_read_position+i]);
 
-			if (abs(comparison - memory[current_ocm_read_position+i]) > 0.00001) {
-				printf("%u %.10f %.10f\n", current_ocm_read_position+i, comparison, memory[current_ocm_read_position+i]);
-				failed++;
-			}
+//			if (fabs(comparison - memory[current_ocm_read_position+i]) > 0.00001) {
+//				printf("%u %.10f %.10f\n", current_ocm_read_position+i, comparison, memory[current_ocm_read_position+i]);
+//				failed++;
+//			}
 		}
 
 #ifdef MULTIPARTICLE
